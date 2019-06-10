@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{84705349-381E-4D78-949A-1F156ADF9EB7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RayTracing</RootNamespace>
+    <AssemblyName>RayTracing</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BRDFs\Base\BRDF.cs" />
+    <Compile Include="BRDFs\GlossySpecular.cs" />
+    <Compile Include="BRDFs\Lambertian.cs" />
+    <Compile Include="BRDFs\PerfectSpecular.cs" />
+    <Compile Include="BRDFs\SV_Lambertian.cs" />
+    <Compile Include="BTDFs\Base\BTDF.cs" />
+    <Compile Include="BRDFs\FresnelReflector.cs" />
+    <Compile Include="BTDFs\FresnelTransmitter.cs" />
+    <Compile Include="BTDFs\PerfectTransmitter.cs" />
+    <Compile Include="Cameras\Base\Camera.cs" />
+    <Compile Include="Cameras\Pinhole.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GeometricObjects\Base\IEmissiveObject.cs" />
+    <Compile Include="GeometricObjects\Base\GeometricObject.cs" />
+    <Compile Include="GeometricObjects\Composite\BeveledCylinder.cs" />
+    <Compile Include="GeometricObjects\Composite\Bowl.cs" />
+    <Compile Include="GeometricObjects\Composite\Cylinder.cs" />
+    <Compile Include="GeometricObjects\Composite\Glass.cs" />
+    <Compile Include="GeometricObjects\Composite\GlassWithLiquid.cs" />
+    <Compile Include="GeometricObjects\Composite\Grid.cs" />
+    <Compile Include="GeometricObjects\Instance.cs" />
+    <Compile Include="GeometricObjects\Part\ConcavePartCylinder.cs" />
+    <Compile Include="GeometricObjects\Part\ConvexPartCylinder.cs" />
+    <Compile Include="GeometricObjects\Primitives\Annulus.cs" />
+    <Compile Include="GeometricObjects\Composite\Compound.cs" />
+    <Compile Include="GeometricObjects\Composite\SolidCone.cs" />
+    <Compile Include="GeometricObjects\Composite\SolidCylinder.cs" />
+    <Compile Include="GeometricObjects\Lamps\DiskLamp.cs" />
+    <Compile Include="GeometricObjects\Lamps\RectangularLamp.cs" />
+    <Compile Include="GeometricObjects\Lamps\SphericalLamp.cs" />
+    <Compile Include="GeometricObjects\Part\ConvexPartSphere.cs" />
+    <Compile Include="GeometricObjects\Primitives\Box.cs" />
+    <Compile Include="GeometricObjects\Primitives\ConcaveSphere.cs" />
+    <Compile Include="GeometricObjects\Primitives\Disk.cs" />
+    <Compile Include="GeometricObjects\Primitives\OpenCone.cs" />
+    <Compile Include="GeometricObjects\Primitives\OpenCylinder.cs" />
+    <Compile Include="GeometricObjects\Primitives\Plane.cs" />
+    <Compile Include="GeometricObjects\Primitives\Rectangle.cs" />
+    <Compile Include="GeometricObjects\Primitives\Sphere.cs" />
+    <Compile Include="GeometricObjects\Primitives\Torus.cs" />
+    <Compile Include="GeometricObjects\Triangles\FlatMeshTriangle.cs" />
+    <Compile Include="GeometricObjects\Triangles\FlatUVMeshTriangle.cs" />
+    <Compile Include="GeometricObjects\Triangles\MeshTriangle.cs" />
+    <Compile Include="GeometricObjects\Triangles\SmoothMeshTriangle.cs" />
+    <Compile Include="GeometricObjects\Triangles\SmoothTriangle.cs" />
+    <Compile Include="GeometricObjects\Triangles\SmoothUVMeshTriangle.cs" />
+    <Compile Include="GeometricObjects\Triangles\Triangle.cs" />
+    <Compile Include="Lights\Ambient.cs" />
+    <Compile Include="Lights\AmbientOccluder.cs" />
+    <Compile Include="Lights\AreaLight.cs" />
+    <Compile Include="Lights\Base\Light.cs" />
+    <Compile Include="Lights\Directional.cs" />
+    <Compile Include="Lights\EnvironmentLight.cs" />
+    <Compile Include="Lights\PointLight.cs" />
+    <Compile Include="Materials\Base\IEmissiveMaterial.cs" />
+    <Compile Include="Materials\Base\AbsMaterial.cs" />
+    <Compile Include="Materials\Base\IMaterial.cs" />
+    <Compile Include="Materials\Dielectric.cs" />
+    <Compile Include="Materials\Emissive.cs" />
+    <Compile Include="Materials\GlossyReflector.cs" />
+    <Compile Include="Materials\Matte.cs" />
+    <Compile Include="Materials\Phong.cs" />
+    <Compile Include="Materials\Reflective.cs" />
+    <Compile Include="Materials\SV_Matte.cs" />
+    <Compile Include="Materials\Transparent.cs" />
+    <Compile Include="Observer\ISceneObservable.cs" />
+    <Compile Include="Observer\ISceneObserver.cs" />
+    <Compile Include="Samplers\Base\Sampler.cs" />
+    <Compile Include="Samplers\Hammersley.cs" />
+    <Compile Include="Samplers\Jittered.cs" />
+    <Compile Include="Samplers\MultiJittered.cs" />
+    <Compile Include="Samplers\NRooks.cs" />
+    <Compile Include="Samplers\Regular.cs" />
+    <Compile Include="Textures\Base\Texture.cs" />
+    <Compile Include="Textures\ConstantColor.cs" />
+    <Compile Include="Textures\Images\Image.cs" />
+    <Compile Include="Textures\Images\ImageTexture.cs" />
+    <Compile Include="Textures\Base\IMapping.cs" />
+    <Compile Include="Textures\Mappings\CylindricalMap.cs" />
+    <Compile Include="Textures\Mappings\LightProbeMap.cs" />
+    <Compile Include="Textures\Mappings\RectangularMap.cs" />
+    <Compile Include="Textures\Mappings\SphericalMap.cs" />
+    <Compile Include="Textures\Procedural\Checker3D.cs" />
+    <Compile Include="Textures\Procedural\PlaneChecker.cs" />
+    <Compile Include="Textures\TInstance.cs" />
+    <Compile Include="Tracers\AreaLighting.cs" />
+    <Compile Include="Tracers\Base\Tracer.cs" />
+    <Compile Include="Tracers\GlobalTrace.cs" />
+    <Compile Include="Tracers\MultipleObjects.cs" />
+    <Compile Include="Tracers\PathTrace.cs" />
+    <Compile Include="Tracers\RayCast.cs" />
+    <Compile Include="Tracers\SingleSphere.cs" />
+    <Compile Include="Tracers\Whitted.cs" />
+    <Compile Include="Util\BBox.cs" />
+    <Compile Include="Util\Math\Mat4.cs" />
+    <Compile Include="Util\Math\MathUtils.cs" />
+    <Compile Include="Util\ColorUtils.cs" />
+    <Compile Include="Util\Math\Rnd.cs" />
+    <Compile Include="Util\Math\Vec2.cs" />
+    <Compile Include="Util\Math\Vec3.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Mesh.cs" />
+    <Compile Include="Util\PPMFile\PPM.cs" />
+    <Compile Include="Util\Ray.cs" />
+    <Compile Include="Util\ShadeRec.cs" />
+    <Compile Include="World\Base\IScene.cs" />
+    <Compile Include="World\Base\SceneBase.cs" />
+    <Compile Include="World\Factory\Base\ISceneFactory.cs" />
+    <Compile Include="World\Factory\SceneFactory.cs" />
+    <Compile Include="World\Scenes\Earth.cs" />
+    <Compile Include="World\Scenes\GlassWithLiquidScene.cs" />
+    <Compile Include="World\Scenes\GlobalTraceTest.cs" />
+    <Compile Include="World\Scenes\GlossyReflectorTest1.cs" />
+    <Compile Include="World\Scenes\GridAndTransformedObject1.cs" />
+    <Compile Include="World\Scenes\AmbientOcclusion.cs" />
+    <Compile Include="World\Scenes\AnnulusScene.cs" />
+    <Compile Include="World\Scenes\AreaLightScene.cs" />
+    <Compile Include="World\Scenes\BallsScene.cs" />
+    <Compile Include="World\Scenes\BallsScene2.cs" />
+    <Compile Include="World\Scenes\BeveledCylinderScene.cs" />
+    <Compile Include="World\Scenes\BowlScene.cs" />
+    <Compile Include="World\Scenes\EnvironmentLightScene.cs" />
+    <Compile Include="World\Scenes\GridAndTransformedObject2.cs" />
+    <Compile Include="World\Scenes\InstanceScene.cs" />
+    <Compile Include="World\Scenes\MultipleSpheres.cs" />
+    <Compile Include="World\Scenes\ObjectsSSFloat.cs" />
+    <Compile Include="World\Scenes\ObjectTest.cs" />
+    <Compile Include="World\Scenes\PathTracingTest.cs" />
+    <Compile Include="World\Scenes\PerfectTransmitterTest.cs" />
+    <Compile Include="World\Scenes\RandomSpheres.cs" />
+    <Compile Include="World\Scenes\ReflectiveObjects.cs" />
+    <Compile Include="World\Scenes\SingleSphere.cs" />
+    <Compile Include="World\Scenes\SolidConeScene.cs" />
+    <Compile Include="World\Scenes\SolidCylinderScene.cs" />
+    <Compile Include="World\Scenes\TessellateSphere.cs" />
+    <Compile Include="World\Scenes\TorusScene.cs" />
+    <Compile Include="World\Scenes\TriangleScene.cs" />
+    <Compile Include="World\ViewPlane.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
